@@ -5,7 +5,6 @@
     <link rel="stylesheet" href='/css/bootstrap.min.css'>
      <link rel="stylesheet" href="/css/style.css" />
      <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
   </head>
   <body>
     <div class="container">
@@ -62,57 +61,10 @@
 
     </div>
 
-
     <script src="/js/jquery-2.2.3.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <source src="/js/bootstrap.min.js" >
     <script src="/js/mock-backend.js"></script>
-
-    <script>
-      $(document).ready(function(){
-        $('#math_functions_form').on('submit', function(e){
-          e.preventDefault();
-          var expctedAns;
-         
-          var number1 = $('#number1').val();
-          var number2 = $('#number2').val();
-          var operation= $('#operation :selected').val();
-           var data = {
-            opd1: number1,
-            opd2:number2,
-            opn: operation,
-          };
-          
-          console.log(data);
-          $.ajax({
-              url:'./operations',
-              type:'POST',
-              data: JSON.stringify(data),
-              // success function
-              success:function(response){
-                // console.log(response);
-                 response.forEach(function(items){
-                 var row ='<tr>'+
-                      '<td>1</td>'+
-                      '<td>4</td>'+
-                      '<td>5</td>'+
-                      '<td>4</td>'+
-                      '<td>No</td>'+
-                    '<td><a href="#" ><i class="fa fa-remove text-danger"></i></a></td>'+
-                    '</tr>';
-                    $('#response_data').html(row);
-
-                });
-              },
-              // error function 
-              error:function(err){
-                    alert("Oops" + err.message);
-                }
-          });
-
-
-        });
-      });
-    </script>
+    <script src="/js/custom.js"></script>
   </body>
 </html>
