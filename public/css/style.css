@@ -1,10 +1,11 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: #fff;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 .right {
@@ -13,12 +14,14 @@ a {
     padding: 20pt;
     height: auto;
 }
-.right h1{
-  font-size: 22px;
-  font-weight: 900;
-  margin-top: 10px;
-  text-align: center;
+
+.right h1 {
+    font-size: 22px;
+    font-weight: 900;
+    margin-top: 10px;
+    text-align: center;
 }
+
 .container-fluid {
     width: 100%;
     padding-right: 0px;
@@ -26,10 +29,38 @@ a {
     margin-right: auto;
     margin-left: auto;
 }
+
 .left {
     background: #fff;
-    padding: 20pt;
+    /*padding: 20pt;*/
 }
+
 .contact-box {
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background: #eee;
+}
+.row.no-gutter {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutter > [class^="col-"],
+.row.no-gutter > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+.table .thead-dark th {
+    color: #fff;
+    background-color: #212529;
+    border-color: #32383e;
+    font-weight: 200;
+    font-size: 10pt;
+}
+.bg-danger {
+    background-color: #FFF8DC !important;
+}
+.bg-success {
+    background-color: #dbedff !important;
+}
+.right > form{
+    padding: 20px;
 }

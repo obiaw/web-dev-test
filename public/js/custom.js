@@ -1,8 +1,7 @@
 $(document).ready(function () {
     $('#math_functions_form').on('submit', function (e) {
         e.preventDefault();
-        // var expctedAns;
-
+        var expctedAns;
         var number1 = parseInt($('#number1').val());
         var number2 = parseInt($('#number2').val());
         var operation = $('#operation :selected').val();
@@ -11,7 +10,7 @@ $(document).ready(function () {
             opd2: number2,
             opn: operation,
         };
-        console.log(data);
+        // console.log(data);
         $.ajax({
             url: './operations',
             type: 'POST',
@@ -35,11 +34,10 @@ $(document).ready(function () {
                     default:
                        break;
                          }
-               var isPassed = "Yes";
+               var isPassed;
                if(expctedAns!==response){
-                   isPassed = "No";
-               }
-                var row = "<tr id=>"+
+                  isPassed = "No";
+                   var row = "<tr class=\"bg-danger\">"+
                           "<td>"+data.opd1+"</td>"+
                           "<td>"+data.opd2+"</td>" +
                           "<td>"+response+"</td>" +
@@ -48,7 +46,21 @@ $(document).ready(function () {
                           "<td><a><i class=\"fa fa-remove text-danger\"></i></a></td>" +
                           "</tr>";
 
-                $('#response_data').append(row);
+                   
+               }
+               else{
+                  isPassed = "Yes";
+                     var row = "<tr class=\"bg-success\">"+
+                          "<td>"+data.opd1+"</td>"+
+                          "<td>"+data.opd2+"</td>" +
+                          "<td>"+response+"</td>" +
+                          "<td>"+expctedAns+"</td>" +
+                          "<td>"+isPassed+"</td>" +
+                          "<td><a><i class=\"fa fa-remove text-danger\"></i></a></td>" +
+                          "</tr>";
+               }
+
+                $('#results').append(row);
 
             },
             // error function 
@@ -60,7 +72,7 @@ $(document).ready(function () {
 
     });
 
-    $('#response_data').on('click', 'tr a', function (e) {
+    $('#results').on('click', 'tr a', function (e) {
         e.preventDefault();
         $(this).parents('tr').remove();
     });
