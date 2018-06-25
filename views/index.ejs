@@ -18,11 +18,11 @@
                 <form action="/operations" method="POST" id="math_functions_form">
                     <div class="form-group">
                         <label for="operandOne">Number One</label>
-                        <input type="text" onkeypress="return isNumber(event)" required  name="number1" id="number1" class="form-control">
+                        <input type="text" onkeypress="return isNumber(event)"  pattern="^[0-9]*$"required  name="number1" id="number1" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="operandTwo">Number Two</label>
-                        <input type="text" onkeypress="return isNumber(event)" required  name="number2" id="number2" class="form-control">
+                        <input type="text" onkeypress="return isNumber(event)"  pattern="^[0-9]*$" required  name="number2" id="number2" class="form-control">
                     </div>
 
                 <div class="form-group">
