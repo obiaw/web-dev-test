@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>
-        <%= title %>
-    </title>
+    <title><%= title %></title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,27 +10,28 @@
 <body>
     <div class="container-fluid">
         <div class="row contact-box no-gutter">
-            <div class="col-md-3 right">
+            <div class="col-md-2 right">
                 <h1>Numbers</h1>
                 <!-- input form begins -->
                 <form action="/operations" method="POST" id="math_functions_form">
                     <div class="form-group">
                         <label for="operandOne">Number One</label>
-                        <input type="text" onkeypress="return isNumber(event)"  pattern="^[0-9]*$"required  name="number1" id="number1" class="form-control">
+                        <input type="text" placeholder="Enter Number One"  pattern="^[0-9]*$"required  name="number1" id="number1" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="operandTwo">Number Two</label>
-                        <input type="text" onkeypress="return isNumber(event)"  pattern="^[0-9]*$" required  name="number2" id="number2" class="form-control">
+                        <input type="text" placeholder="Enter Number Two"  pattern="^[0-9]*$" required  name="number2" id="number2" class="form-control">
                     </div>
 
                 <div class="form-group">
                 <label for="operandOperation">Operation</label>
-                 <select class="form-control" id="operation" name="operation">
+                 <select class="form-control" id="operation" name="operation" style="height: 30px;">
                   <option value="ADD">Add</option>
                   <option value="SUB">Subtract</option>
                   <option value="MUL">Multiply</option>
                   <option value="DIV">Divide</option>
                   </select>
+
                     </div>
                     <div class="form-group">
                         <input type="submit" name="submit" class="btn btn-warning btn-sm  btn-block" value="Post">
@@ -41,9 +40,10 @@
                 <!-- form ends -->
             </div>
 
-                <div class="col-md-9 left">
+                <div class="col-md-10 left">
                     <!-- Results table begins -->
-                <table class="table">
+                    <h1>Results</h1>
+                    <table class="table round">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">Number 1</th>
@@ -66,7 +66,7 @@
     </div>
 
     <script src="/js/jquery-2.2.3.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <source src="/js/bootstrap.min.js">
     <script src="/js/mock-backend.js"></script>

@@ -1,18 +1,23 @@
 body {
-    padding: 50px;
+    /*padding: 50px;*/
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background: #fff;
+    background: #fff2e5;
 }
 
+body, html{
+    position: relative;
+    height: 100%;
+}
 a {
     color: #00B7FF;
 }
 
 .right {
-    background: #1c5f7c;
+    background: #333;
     color: #fff;
     padding: 20pt;
-    height: auto;
+    height:772.5px;
+    position: static;
 }
 
 .right h1 {
@@ -31,13 +36,17 @@ a {
 }
 
 .left {
-    background: #fff;
+     /*background: #f3f5f5;*/
+     background: #fff2e5;
+    border-right:4px;
     /*padding: 20pt;*/
 }
 
 .contact-box {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);*/
     background: #eee;
+    position: relative;
+    /*height: 100%;*/
 }
 .row.no-gutter {
   margin-right: 0;
@@ -45,22 +54,103 @@ a {
 }
 .row.no-gutter > [class^="col-"],
 .row.no-gutter > [class*=" col-"] {
-  padding-right: 0;
-  padding-left: 0;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 .table .thead-dark th {
-    color: #fff;
+    color: #ffc107;
     background-color: #212529;
     border-color: #32383e;
-    font-weight: 200;
+    font-weight: 400;
     font-size: 10pt;
+
+}
+.table tr > thead{
+    border-radius: 14px !important;
 }
 .bg-danger {
-    background-color: #FFF8DC !important;
+    /*background-color: #FFF8DC !important;*/
+    background-color:rgb(255, 205, 210) !important;
 }
 .bg-success {
     background-color: #dbedff !important;
 }
 .right > form{
-    padding: 20px;
+    padding: 10px;
+}
+
+
+.btn-warning {
+    color: #212529;
+    background-color: #ffa726;
+    border-color: #ffa726;
+    border-radius: 20px;
+}
+.left h1{
+    font-size: 22px;
+    margin-top: 10px;
+}
+.btn-block{
+    /*width: 200px !important;*/
+}
+.form-group label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    margin-left: 10px;
+    font-weight: 100 !important;
+}
+.form-control{
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: .65rem;
+    line-height: 1.5;
+    color: #ffd54f;
+    background-color: #333;
+    background-clip: padding-box;
+    border: 1px solid #ffd54f;
+   /* border-radius: .25rem;*/
+   cfont-weight: 100;
+    border-radius: 20px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+textarea:focus,
+select:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  border-color: #ff6f00;
+  background: #333;
+  color: #ffd54f !important;
+}
+
+
+select option {
+  background-color: red !important;
+  background: red !important;
+}
+select:focus, select.active{
+    background: #333 !important;
+     border: 1px solid #ffd54f;
+    /*border:none !important;*/
+    box-shadow: none !important; 
+}
+
+select.decoration option:hover {
+box-shadow: 0 0 10px 100px #1882A8 inset;
+}
+.round{
+     border-radius: 15px !important;
 }
