@@ -7,30 +7,10 @@ var supertest = require('supertest');
 var server = supertest.agent("https://localhost:3000");
 var request = require('supertest');
 var bodyParser = require('body-parser');
+var assert = require("assert");
 
 
-// Unit test begins
-
-// Index or home page test
-// describe("Index Page  Unit test",function(){
-// 	it("should return index page with my form and results table", function(done){
-// 	request(app.listen()) 
-// 	.get('/')
-// 	.expect(200)
-// 	.end(function(err,res){
-//  		 done();
-// 		});
-// 	});
-
-// });
-
-//form post test 
-  // var opd1 = parseInt(req.body.number1);
-  // var opd2 = parseInt(req.body.number2);
-  // var opn = req.body.operation;
-  // var response = {opd1:opd1,opd2:opd2, opn:opn};
-
-describe("SAMPLE unit test",function(){
+describe("Index Page unit test",function(){
   // #1 should return home page
    	it("should return index page with my form and results table", function(done){
 	request(app.listen()) 
@@ -41,25 +21,67 @@ describe("SAMPLE unit test",function(){
 		});
 	});
   
+});
 
-   // #2 perform math operations
-  it("should add two number",function(done){
 
-    //calling ADD api
-    server
-    .post('/operations')
-    .send()
-    .expect("Content-type",/json/)
-    .expect(200)
-    .end(function(err,res){
-      // res.status.should.equal(200);
-      // res.body.error.should.equal(false);
-      // res.body.data.should.equal(40);
-      done();
+describe("Math Mperations Unit Testing", function() {
+    describe("Adding two number", function() {
+        it("it should add two number", function(done) {
+            // Send some Form Data
+            request(app.listen()) 
+            .post('/operations')
+            .send({opd1:3,opd2:2, opn:'ADD'})
+            .end(function (err, res) {
+                assert.equal(5, 3+2);              
+                done();
+            });
+        });
+
     });
-  });
 
-  // it("should return 404",function(done){
-     
-  // })
+     describe(" Multiply two number", function() {
+        it("it should Multiply two number", function(done) {
+            // Send some Form Data
+            request(app.listen()) 
+            .post('/operations')
+            .send({opd1:3,opd2:2, opn:'MUL'})
+            .end(function (err, res) {
+                assert.equal(6, 3* 2);              
+                done();
+            });
+        });
+
+    });
+
+     describe("Subtract two number", function() {
+        it("it should Multiply two number", function(done) {
+            // Send some Form Data
+            request(app.listen()) 
+            .post('/operations')
+            .send({opd1:3,opd2:2, opn:'SUB'})
+            .end(function (err, res) {
+                assert.equal(1, 3-2);              
+                done();
+            });
+        });
+
+    });
+
+
+ describe("Divide two number", function() {
+        it("it should Multiply two number", function(done) {
+            // Send some Form Data
+            request(app.listen()) 
+            .post('/operations')
+            .send({opd1:2,opd2:4, opn:'DIV'})
+            .end(function (err, res) {
+                assert.equal(0.5, 2 / 4);              
+                done();
+            });
+        });
+
+    });
+
+
+
 });

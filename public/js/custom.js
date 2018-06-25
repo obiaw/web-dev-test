@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $('#math_functions_form').on('submit', function (e) {
-
         e.preventDefault();
         var expctedAns;
         var number1 = parseInt($('#number1').val());
@@ -11,7 +10,6 @@ $(document).ready(function () {
             opd2: number2,
             opn: operation,
         };
-
         // console.log(data);
         $.ajax({
             url: './operations',

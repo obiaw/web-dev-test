@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>
         <%= title %>
     </title>
-    <link rel="stylesheet" href='/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -15,6 +14,7 @@
         <div class="row contact-box no-gutter">
             <div class="col-md-3 right">
                 <h1>Numbers</h1>
+                <!-- input form begins -->
                 <form action="/operations" method="POST" id="math_functions_form">
                     <div class="form-group">
                         <label for="operandOne">Number One</label>
@@ -25,9 +25,9 @@
                         <input type="text" onkeypress="return isNumber(event)" required  name="number2" id="number2" class="form-control">
                     </div>
 
-                    <div class="form-group">
-                        <label for="operandOperation">Operation</label>
-                        <select class="form-control" id="operation" name="operation">
+                <div class="form-group">
+                <label for="operandOperation">Operation</label>
+                 <select class="form-control" id="operation" name="operation">
                   <option value="ADD">Add</option>
                   <option value="SUB">Subtract</option>
                   <option value="MUL">Multiply</option>
@@ -38,9 +38,11 @@
                         <input type="submit" name="submit" class="btn btn-warning btn-sm  btn-block" value="Post">
                     </div>
                 </form>
+                <!-- form ends -->
             </div>
 
                 <div class="col-md-9 left">
+                    <!-- Results table begins -->
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -57,6 +59,7 @@
 
                     </tbody>
                 </table>
+                <!-- Results table ends -->
              </div>
              </div>
 
@@ -69,3 +72,4 @@
     <script src="/js/mock-backend.js"></script>
     <script src="/js/custom.js"></script>
 </body>
+
