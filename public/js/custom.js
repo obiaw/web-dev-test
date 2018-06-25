@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('#math_functions_form').on('submit', function (e) {
+
         e.preventDefault();
         var expctedAns;
         var number1 = parseInt($('#number1').val());
@@ -10,11 +11,13 @@ $(document).ready(function () {
             opd2: number2,
             opn: operation,
         };
+
         // console.log(data);
         $.ajax({
             url: './operations',
             type: 'POST',
             data: JSON.stringify(data),
+
             // success function
             success: function (response) {
                 console.log(response);
@@ -45,8 +48,6 @@ $(document).ready(function () {
                           "<td>"+isPassed+"</td>" +
                           "<td><a><i class=\"fa fa-remove text-danger\"></i></a></td>" +
                           "</tr>";
-
-                   
                }
                else{
                   isPassed = "Yes";
@@ -76,5 +77,15 @@ $(document).ready(function () {
         e.preventDefault();
         $(this).parents('tr').remove();
     });
+
+    // check for numbers only input
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if ( (charCode > 31 && charCode < 48) || charCode > 57) {
+            return false;
+        }
+        return true;
+    }
 
 });
