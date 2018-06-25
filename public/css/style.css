@@ -6,3 +6,30 @@ body {
 a {
   color: #00B7FF;
 }
+
+.right {
+    background: #1c5f7c;
+    color: #fff;
+    padding: 20pt;
+    height: auto;
+}
+.right h1{
+  font-size: 22px;
+  font-weight: 900;
+  margin-top: 10px;
+  text-align: center;
+}
+.container-fluid {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.left {
+    background: #fff;
+    padding: 20pt;
+}
+.contact-box {
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
