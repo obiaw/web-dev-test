@@ -13,7 +13,7 @@
             <div class="col-md-3 right">
             <h1>Numbers</h1>
             <br><br>
-              <form>
+              <form action="/operations" method="POST" id="math_functions_form">
                 <div class="form-group">
                 <label for="operandOne">Number One</label>
                 <input type="text" name="number1" id="number1" class="form-control" >
@@ -26,10 +26,10 @@
                  <div class="form-group">
                 <label for="operandOperation">Operation</label>
                   <select class="form-control" id="operation" name="operation">
-                  <option>Add</option>
-                  <option>Subtract</option>
-                  <option>Multiply</option>
-                  <option>Divide</option>
+                  <option value="ADD">Add</option>
+                  <option value="SUB">Subtract</option>
+                  <option value="MUL">Multiply</option>
+                  <option value="DIV">Divide</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -39,32 +39,22 @@
             </div>
 
               <div class="col-md-9 left">
-                  <table class="table">
-      <thead class="thead-dark">
-     <tr>
-     <th scope="col">Number 1</th>
-      <th scope="col">Number 2</th>
-      <th scope="col">Response</th>
-      <th scope="col">Expected</th>
-      <th scope="col">Passed</th>
-      <th scope="col">Remove</th>
-    </tr>
-  </thead>
-  <tbody>
+                    <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                    <th scope="col">Number 1</th>
+                    <th scope="col">Number 2</th>
+                    <th scope="col">Response</th>
+                    <th scope="col">Expected</th>
+                    <th scope="col">Passed</th>
+                    <th scope="col">Remove</th>
+                    </tr>
+                    </thead>
+                    <tbody id="response_data">
+                   
 
-  <% for(var i=0; i<10; i++){%>
-    <tr>
-     <td>1</td>
-      <td>4</td>
-      <td>5</td>
-      <td>4</td>
-      <td>No</td>
-      <td><a href="#" ><i class="fa fa-remove text-danger"></i></a></td>
-    </tr>
-    <% }%>
-  
-  </tbody>
-</table>
+                    </tbody>
+                    </table>
 
 
               </div>
@@ -77,5 +67,52 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <source src="/js/bootstrap.min.js" >
     <script src="/js/mock-backend.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        $('#math_functions_form').on('submit', function(e){
+          e.preventDefault();
+          var expctedAns;
+         
+          var number1 = $('#number1').val();
+          var number2 = $('#number2').val();
+          var operation= $('#operation :selected').val();
+           var data = {
+            opd1: number1,
+            opd2:number2,
+            opn: operation,
+          };
+          
+          console.log(data);
+          $.ajax({
+              url:'./operations',
+              type:'POST',
+              data: JSON.stringify(data),
+              // success function
+              success:function(response){
+                // console.log(response);
+                 response.forEach(function(items){
+                 var row ='<tr>'+
+                      '<td>1</td>'+
+                      '<td>4</td>'+
+                      '<td>5</td>'+
+                      '<td>4</td>'+
+                      '<td>No</td>'+
+                    '<td><a href="#" ><i class="fa fa-remove text-danger"></i></a></td>'+
+                    '</tr>';
+                    $('#response_data').html(row);
+
+                });
+              },
+              // error function 
+              error:function(err){
+                    alert("Oops" + err.message);
+                }
+          });
+
+
+        });
+      });
+    </script>
   </body>
 </html>
